@@ -6,7 +6,6 @@
     "description": "Master registry of all platforms referenced by FinAdvisor. Checked silently on launch. Update this file on GitHub to push changes to all running instances without reinstall.",
     "check_frequency_hours": 24
   },
-
   "market_data": {
     "finnhub": {
       "name": "Finnhub",
@@ -40,7 +39,6 @@
       "active": true
     }
   },
-
   "ai_extraction": {
     "anthropic": {
       "name": "Anthropic",
@@ -64,7 +62,6 @@
       "active": true
     }
   },
-
   "crypto_exchanges": {
     "coinbase": {
       "name": "Coinbase",
@@ -77,7 +74,7 @@
       "requires_key": true,
       "key_type": "JWT_EC",
       "activation_delay_hours": 48,
-      "activation_note": "New keys require up to 48 hours to activate — this is normal",
+      "activation_note": "New keys require up to 48 hours to activate \u2014 this is normal",
       "guide_last_verified": "2026-06-10",
       "wizard_step": "6",
       "active": true
@@ -151,7 +148,6 @@
       "active": true
     }
   },
-
   "investment_platforms": {
     "etrade": {
       "name": "E*TRADE",
@@ -224,7 +220,6 @@
       "active": true
     }
   },
-
   "banking": {
     "plaid": {
       "name": "Plaid",
@@ -243,7 +238,6 @@
       "active": true
     }
   },
-
   "credit_reporting": {
     "annual_credit_report": {
       "name": "AnnualCreditReport.com",
@@ -254,8 +248,13 @@
       "requires_key": false,
       "government_site": true,
       "ssl_warning": true,
-      "ssl_warning_message": "Always verify the padlock icon before entering any personal information. This is a government-authorized site — verify the exact URL before proceeding.",
-      "data_provided": ["account_balances","credit_limits","payment_history","account_types"],
+      "ssl_warning_message": "Always verify the padlock icon before entering any personal information. This is a government-authorized site \u2014 verify the exact URL before proceeding.",
+      "data_provided": [
+        "account_balances",
+        "credit_limits",
+        "payment_history",
+        "account_types"
+      ],
       "score_provided": false,
       "score_note": "Credit scores are NOT included in the free report. Use Credit Karma for score tracking.",
       "guide_last_verified": "2026-06-10",
@@ -271,12 +270,15 @@
       "has_api": false,
       "access_method": "browser_sync",
       "sync_note": "Synced via automated browser session. Bi-weekly sync recommended.",
-      "data_provided": ["credit_scores","account_balances","utilization"],
+      "data_provided": [
+        "credit_scores",
+        "account_balances",
+        "utilization"
+      ],
       "guide_last_verified": "2026-06-10",
       "active": true
     }
   },
-
   "government": {
     "irs": {
       "name": "IRS",
@@ -287,7 +289,12 @@
       "cost": "free",
       "ssl_warning": true,
       "guide_last_verified": "2026-06-10",
-      "active": true
+      "active": true,
+      "check_method": "manual",
+      "always_available": true,
+      "skip_health_check": true,
+      "skip_reason": "IRS.gov blocks automated requests by design \u2014 site is government-operated and monitored independently",
+      "api_test_url": null
     },
     "eia_gas": {
       "name": "EIA",
