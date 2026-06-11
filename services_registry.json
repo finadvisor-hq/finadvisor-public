@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "last_updated": "2026-06-10",
+    "maintained_by": "finadvisor-hq",
+    "description": "Master registry of all platforms referenced by FinAdvisor. Checked silently on launch. Update this file on GitHub to push changes to all running instances without reinstall.",
+    "check_frequency_hours": 24
+  },
+
+  "market_data": {
+    "finnhub": {
+      "name": "Finnhub",
+      "display_name": "Finnhub Stock API",
+      "url": "https://finnhub.io",
+      "api_test_url": "https://finnhub.io/api/v1/quote?symbol=SPY&token=TEST",
+      "signup_url": "https://finnhub.io/register",
+      "docs_url": "https://finnhub.io/docs/api",
+      "status_url": "https://status.finnhub.io",
+      "category": "market_data",
+      "cost": "free",
+      "cost_detail": "60 calls/minute forever free",
+      "requires_key": true,
+      "key_format": "alphanumeric",
+      "fallback": "yahoo_chart",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "8A",
+      "active": true
+    },
+    "yahoo_chart": {
+      "name": "Yahoo Finance",
+      "display_name": "Yahoo Finance (fallback)",
+      "url": "https://finance.yahoo.com",
+      "api_test_url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY",
+      "category": "market_data",
+      "cost": "free",
+      "requires_key": false,
+      "fallback": "wsj",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": null,
+      "active": true
+    }
+  },
+
+  "ai_extraction": {
+    "anthropic": {
+      "name": "Anthropic",
+      "display_name": "Anthropic Claude API",
+      "url": "https://anthropic.com",
+      "signup_url": "https://console.anthropic.com",
+      "api_key_url": "https://console.anthropic.com/settings/keys",
+      "pricing_url": "https://anthropic.com/pricing",
+      "spending_limit_url": "https://console.anthropic.com/settings/limits",
+      "docs_url": "https://docs.anthropic.com",
+      "category": "ai_extraction",
+      "cost": "pay_per_use",
+      "cost_detail": "~$0.15 per full setup session",
+      "requires_key": true,
+      "key_format": "starts_with_sk-ant-",
+      "key_validation_regex": "^sk-ant-[a-zA-Z0-9\\-_]{20,}$",
+      "financial_risk": true,
+      "financial_risk_note": "API usage is billed to your Anthropic account. Set a spending limit before use.",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "8B",
+      "active": true
+    }
+  },
+
+  "crypto_exchanges": {
+    "coinbase": {
+      "name": "Coinbase",
+      "display_name": "Coinbase Advanced Trade",
+      "url": "https://coinbase.com",
+      "api_key_url": "https://coinbase.com/settings/api",
+      "docs_url": "https://docs.cdp.coinbase.com",
+      "category": "crypto",
+      "cost": "free",
+      "requires_key": true,
+      "key_type": "JWT_EC",
+      "activation_delay_hours": 48,
+      "activation_note": "New keys require up to 48 hours to activate — this is normal",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    },
+    "kraken": {
+      "name": "Kraken",
+      "display_name": "Kraken Exchange",
+      "url": "https://kraken.com",
+      "api_key_url": "https://www.kraken.com/u/security/api",
+      "docs_url": "https://docs.kraken.com/rest",
+      "category": "crypto",
+      "cost": "free",
+      "requires_key": true,
+      "key_type": "HMAC",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    },
+    "gemini": {
+      "name": "Gemini",
+      "display_name": "Gemini Exchange",
+      "url": "https://exchange.gemini.com",
+      "api_key_url": "https://exchange.gemini.com/settings/api",
+      "docs_url": "https://docs.gemini.com",
+      "category": "crypto",
+      "cost": "free",
+      "requires_key": true,
+      "key_type": "HMAC",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    },
+    "robinhood": {
+      "name": "Robinhood",
+      "display_name": "Robinhood Crypto",
+      "url": "https://robinhood.com",
+      "api_key_url": "https://robinhood.com/account/settings",
+      "docs_url": "https://docs.robinhood.com",
+      "category": "crypto",
+      "cost": "free",
+      "requires_key": true,
+      "us_only": true,
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    },
+    "binanceus": {
+      "name": "Binance.US",
+      "display_name": "Binance.US",
+      "url": "https://binance.us",
+      "category": "crypto",
+      "cost": "free",
+      "requires_key": true,
+      "api_restricted": true,
+      "api_restriction_note": "API access restricted for US users. Manual balance entry or CSV export required.",
+      "us_only": true,
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    },
+    "cashapp": {
+      "name": "Cash App",
+      "display_name": "Cash App (Bitcoin)",
+      "url": "https://cash.app",
+      "category": "crypto",
+      "has_api": false,
+      "manual_only": true,
+      "manual_note": "No public API available. Balance must be entered manually.",
+      "guide_last_verified": "2026-06-10",
+      "wizard_step": "6",
+      "active": true
+    }
+  },
+
+  "investment_platforms": {
+    "etrade": {
+      "name": "E*TRADE",
+      "display_name": "E*TRADE / Morgan Stanley",
+      "url": "https://etrade.com",
+      "category": "brokerage",
+      "beginner_friendly": false,
+      "has_api": true,
+      "api_complexity": "high",
+      "manual_note": "API requires Morgan Stanley developer approval. Manual balance entry recommended.",
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "fidelity": {
+      "name": "Fidelity",
+      "display_name": "Fidelity Investments",
+      "url": "https://fidelity.com",
+      "category": "brokerage",
+      "beginner_friendly": true,
+      "beginner_note": "No minimum balance. Good for first-time investors.",
+      "has_api": false,
+      "manual_only": true,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "schwab": {
+      "name": "Charles Schwab",
+      "display_name": "Charles Schwab",
+      "url": "https://schwab.com",
+      "category": "brokerage",
+      "beginner_friendly": true,
+      "beginner_note": "No minimum balance. Comprehensive platform.",
+      "has_api": true,
+      "api_complexity": "medium",
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "robinhood_invest": {
+      "name": "Robinhood",
+      "display_name": "Robinhood Investing",
+      "url": "https://robinhood.com",
+      "category": "brokerage",
+      "beginner_friendly": true,
+      "beginner_note": "Popular with first-time investors. Commission-free trades. No minimum.",
+      "has_api": true,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "webull": {
+      "name": "Webull",
+      "display_name": "Webull",
+      "url": "https://webull.com",
+      "category": "brokerage",
+      "beginner_friendly": true,
+      "beginner_note": "Commission-free. Good for research tools.",
+      "has_api": true,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "vanguard": {
+      "name": "Vanguard",
+      "display_name": "Vanguard",
+      "url": "https://vanguard.com",
+      "category": "brokerage",
+      "beginner_friendly": false,
+      "beginner_note": "Best for long-term index fund investing. $0 minimum on most accounts.",
+      "has_api": false,
+      "manual_only": true,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    }
+  },
+
+  "banking": {
+    "plaid": {
+      "name": "Plaid",
+      "display_name": "Plaid Financial Data",
+      "url": "https://plaid.com",
+      "signup_url": "https://dashboard.plaid.com/signup",
+      "docs_url": "https://plaid.com/docs",
+      "pricing_url": "https://plaid.com/pricing",
+      "category": "bank_sync",
+      "cost": "free_tier_10_users",
+      "cost_detail": "Free up to 10 connected accounts. Pay-per-use after.",
+      "requires_business_agreement": true,
+      "commercial_note": "Commercial use requires signed Plaid agreement. Free tier for development and personal use.",
+      "status": "coming_soon",
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    }
+  },
+
+  "credit_reporting": {
+    "annual_credit_report": {
+      "name": "AnnualCreditReport.com",
+      "display_name": "Annual Credit Report (Official)",
+      "url": "https://annualcreditreport.com",
+      "category": "credit",
+      "cost": "free",
+      "requires_key": false,
+      "government_site": true,
+      "ssl_warning": true,
+      "ssl_warning_message": "Always verify the padlock icon before entering any personal information. This is a government-authorized site — verify the exact URL before proceeding.",
+      "data_provided": ["account_balances","credit_limits","payment_history","account_types"],
+      "score_provided": false,
+      "score_note": "Credit scores are NOT included in the free report. Use Credit Karma for score tracking.",
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "credit_karma": {
+      "name": "Credit Karma",
+      "display_name": "Credit Karma (Intuit)",
+      "url": "https://creditkarma.com",
+      "category": "credit",
+      "cost": "free",
+      "requires_key": false,
+      "has_api": false,
+      "access_method": "browser_sync",
+      "sync_note": "Synced via automated browser session. Bi-weekly sync recommended.",
+      "data_provided": ["credit_scores","account_balances","utilization"],
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    }
+  },
+
+  "government": {
+    "irs": {
+      "name": "IRS",
+      "display_name": "Internal Revenue Service",
+      "url": "https://irs.gov",
+      "tax_account_url": "https://www.irs.gov/payments/your-online-account",
+      "category": "tax",
+      "cost": "free",
+      "ssl_warning": true,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    },
+    "eia_gas": {
+      "name": "EIA",
+      "display_name": "US Energy Information Administration",
+      "url": "https://eia.gov",
+      "api_test_url": "https://api.eia.gov/v2/petroleum/pri/gnd/data/?api_key=DEMO_KEY&frequency=weekly&data[0]=value&facets[duoarea][]=NUS&facets[product][]=EPM0&sort[0][column]=period&sort[0][direction]=desc&length=1",
+      "category": "gas_prices",
+      "cost": "free",
+      "requires_key": false,
+      "guide_last_verified": "2026-06-10",
+      "active": true
+    }
+  }
+}
