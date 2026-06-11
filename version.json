@@ -1,0 +1,14 @@
+{
+  "current_version": "alpha-1.0",
+  "release_date": "2026-06-10",
+  "release_notes": "Initial alpha release — family testing phase",
+  "min_compatible": "alpha-1.0",
+  "update_url": "https://github.com/finadvisor-hq/finadvisor-public/releases",
+  "support_email": "jregulus1@gmail.com",
+  "support_phone": null,
+  "company_url": null,
+  "status_message": null,
+  "status_level": null,
+  "phase": "alpha",
+  "public": false
+}
